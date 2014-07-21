@@ -1,3 +1,4 @@
+bindaddr = :3001
 db.scheme = tcp
 db.user = 
 db.pass = 

@@ -67,7 +67,9 @@ func main() {
   r.HandleFunc("/lanelet/{lanelet}", LaneletHandler).Methods("GET").Name("lanelet")
 
   http.Handle("/", r)
-  log.Fatal(http.ListenAndServe(":3001", nil))
+  bindaddr := config["bindaddr"]
+  log.Printf("[hgi-bamcheck-server] starting http listener on %s", bindaddr)
+  log.Fatal(http.ListenAndServe(bindaddr, nil))
 }
 
 func LaneletHandler(w http.ResponseWriter, req *http.Request) {
